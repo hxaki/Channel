@@ -1,0 +1,17 @@
+<template name="header">
+    <header>
+        <div class="logo">Channel</div>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                {{#if currentUser }}
+                  <li><a href="/profile/{{currentUser.username}}">{{currentUser.username}}</a></li>
+                  <li><a href="" class="sign-out">Sign Out</a></li>
+                {{ else }} 
+                  <li><a href="/login">Sign in</a></li>
+                {{/if}}
+
+            </ul>
+        </nav>
+    </header>
+</template>

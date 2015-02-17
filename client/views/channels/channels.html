@@ -1,0 +1,20 @@
+<template name="channels">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <ul>
+            {{ #each channels }}
+            <a href="/c/{{title}}"><li>{{ title }}</li></a>
+            {{ /each }}
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul>
+            {{ #each channels }}
+            <a href="/c/{{title}}"><li>{{ title }}</li></a>
+            {{ /each }}
+          </ul>
+        </div>
+      </div>
+    </div>
+</template>
