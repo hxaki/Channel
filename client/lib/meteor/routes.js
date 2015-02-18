@@ -1,5 +1,13 @@
-Router.route('/', function () {
-  this.render('layout-home');
+Router.configure({
+  loadingTemplate: 'loading',
+  notFoundTemplate: 'notFound',
+});
+
+Router.route('/', {
+  name: "layoutHome",
+  waitOn: function() {
+    return Meteor.subscribe('channels');
+  }
 });
 
 Router.route('/login', function () {
@@ -13,3 +21,9 @@ Router.route('/profile/:_id', function () {
 Router.route('/c/:_title', function () {
   this.render('profile');
 });
+
+Router.route('/c/:_title/submit', function () {
+  this.render('profile');
+});
+
+// Route.onBeforeAction('dataNotFound');
