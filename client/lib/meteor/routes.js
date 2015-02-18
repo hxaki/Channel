@@ -1,3 +1,4 @@
+// NOTE: REREAD THE IRON ROUTER GUIDE ON GITHUB
 Router.configure({
   loadingTemplate: 'loading',
   notFoundTemplate: 'notFound',
@@ -23,6 +24,10 @@ Router.route('/c/:_title', function () {
 });
 
 Router.route('/c/:_title/submit', function () {
+  this.render('profile');
+});
+
+Router.route('/c/:_title/_id', function () {
   this.render('profile');
 });
 
