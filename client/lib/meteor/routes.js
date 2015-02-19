@@ -27,8 +27,17 @@ Router.route('/c/:_title/submit', function () {
   this.render('profile');
 });
 
-Router.route('/c/:_title/_id', function () {
-  this.render('profile');
+Router.route('/c/:_title/_id', {
+  name: "Post",
+  waitOn: function() {
+    return Meteor.subscribe('posts', this.params._id);
+  },
+  data: function() {
+    return Posts.findOne({_id: this.params._id});
+  },
+  action: function() {
+    this.render('profile');
+  }
 });
 
 // Route.onBeforeAction('dataNotFound');
