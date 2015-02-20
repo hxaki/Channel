@@ -20,11 +20,14 @@ Router.route('/profile/:_id', function () {
 });
 
 Router.route('/c/:_title', function () {
-  this.render('profile');
+  this.render('channel');
 });
 
-Router.route('/c/:_title/submit', function () {
-  this.render('profile');
+Router.route('/c/:_title/submit', {
+  name: 'submit',
+  action: function() {
+    this.render('postSubmit');
+  }
 });
 
 Router.route('/c/:_title/_id', {

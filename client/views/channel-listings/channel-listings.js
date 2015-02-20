@@ -1,4 +1,4 @@
-Template.channels.helpers({
+Template.channelListings.helpers({
   channels : function() {
     return Channels.find();
   }
