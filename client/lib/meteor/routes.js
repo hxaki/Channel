@@ -19,12 +19,27 @@ Router.route('/profile/:_id', function () {
   this.render('profile');
 });
 
-Router.route('/c/:_title', function () {
-  this.render('channel');
+Router.route('/c/:_title', {
+  name: 'channelPage',
+  waitOn: function() {
+    return Meteor.subscribe("channels");
+  },
+  data: function() {
+    return Channels.findOne({name:this.params._title});
+  },
+  action: function() {
+    this.render("channel");
+  }
 });
 
 Router.route('/c/:_title/submit', {
   name: 'submit',
+  waitOn: function() {
+    return Meteor.subscribe("channels");
+  },
+  data: function() {
+    return Channels.findOne({name:this.params._title});
+  },
   action: function() {
     this.render('postSubmit');
   }
